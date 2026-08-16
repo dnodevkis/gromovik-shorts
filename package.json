@@ -1,0 +1,18 @@
+{
+  "name": "gromovik-shorts-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Статический сайт рабочего пространства шортсов Громовика",
+  "scripts": {
+    "build": "node scripts/build-site.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "gray-matter": "4.0.3",
+    "marked": "18.0.9"
+  }
+}
+
