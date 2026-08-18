@@ -49,6 +49,7 @@ const scenarioFiles = scenarioNames.map((name) => `Сценарии/${name}`);
 const sourceItems = [
   { source: 'site/index.md', output: 'index.html', section: 'Обзор', navTitle: 'Главная' },
   { source: '08_Реестр_сценариев.md', output: '08_Реестр_сценариев.html', section: 'Обзор', navTitle: 'Реестр сценариев' },
+  { source: '09_Реквизит.md', output: '09_Реквизит.html', section: 'Обзор', navTitle: 'Реквизит' },
   ...scenarioFiles.map((source) => ({ source, output: replaceMd(source), section: 'Сценарии' })),
   ...coreFiles.map((source) => ({ source, output: replaceMd(source), section: 'Система' })),
   ...workflowFiles.map((source) => ({ source, output: replaceMd(source), section: 'Рабочий процесс' })),
