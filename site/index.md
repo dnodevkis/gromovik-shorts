@@ -31,7 +31,7 @@ description: Сценарии, канон и производственная с
   <a class="feature-card" href="Сценарии/index.html">
     <span class="feature-card__number">01</span>
     <strong>Сценарии</strong>
-    <span>Полный текст, биты, задача актрисы, CTA и реквизит.</span>
+    <span>Полный текст, встреча, хуки, поворот, CTA и реквизит.</span>
   </a>
   <a class="feature-card" href="02_Канон_мира_и_Веда.html">
     <span class="feature-card__number">02</span>

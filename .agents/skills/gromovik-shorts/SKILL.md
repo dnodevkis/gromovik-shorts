@@ -89,9 +89,9 @@ Define:
 
 Reject a draft that works unchanged as an audio essay unless the user explicitly requests audio narration.
 
-### Step 5 — write beats, then dialogue
+### Step 5 — plan beats, then write dialogue
 
-Create a timed beat table before final dialogue. Each beat must alter at least one of:
+Plan the beats in your head before final dialogue; do not put a timed beat table in the card. Each beat must alter at least one of:
 
 - information;
 - pressure;
@@ -156,15 +156,15 @@ For a publication:
 A complete scenario includes:
 
 - metadata;
-- strategic role;
-- director's premise;
-- timed beat table;
-- full spoken script;
-- concise stage directions;
-- CTA and dynamic wrapper;
-- concise prop list.
+- `Стратегическая роль`;
+- `Встреча` — camera, objective, resistance, verb, prop and action, five single lines;
+- `Хуки`;
+- `Поворот и последний кадр`;
+- `Полный текст и мизансцена` — full spoken script with concise stage directions;
+- `CTA` and dynamic wrapper;
+- `Реквизит`.
 
-Integrate essential acting and spatial information into the timed beats and stage directions. Do not add separate `Ключи актрисе`, `Пространство`, `Производство`, or `Проверка` sections. End the scenario card with a short `Реквизит` section. Production and canon validation still happen during the workflow but are not copied into the card.
+Integrate essential acting and spatial information into the stage directions. Do not add separate `Таблица битов`, `Ключи актрисе`, `Пространство`, `Производство`, or `Проверка` sections; per-beat timing is not written down, only `estimated_duration`. End the scenario card with a short `Реквизит` section. Production and canon validation still happen during the workflow but are not copied into the card.
 
 Do not return placeholders instead of the finished spoken text.
 
