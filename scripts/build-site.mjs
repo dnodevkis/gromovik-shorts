@@ -19,26 +19,15 @@ marked.setOptions({
   breaks: false,
 });
 
-const coreFiles = [
-  '01_Проект_и_продукт.md',
-  '02_Канон_мира_и_Веда.md',
-  '03_Сценический_язык.md',
-  '04_Форматы_и_рубрики.md',
-  '05_Маркетинговая_система.md',
-  '06_Производство_и_публикация.md',
-  '07_Решения_и_бэклог.md',
-];
+// На сайт публикуются только три группы: корневые файлы 00-10, «Сценарии» и «Съёмочные дни».
+// Всё остальное (Шаблоны, Публикации, Связи с играми, архив) остаётся внутренним и в сборку не попадает.
+const pinnedRootDocs = new Set(['08_Реестр_сценариев.md', '09_Реквизит.md']);
 
-const workflowFiles = [
-  'Публикации/README.md',
-  'Съёмочные_дни/README.md',
-  'Связи_с_играми/README.md',
-  'Шаблоны/T-001_Карточка_сценария.md',
-  'Шаблоны/T-002_Карточка_публикации.md',
-  'Шаблоны/T-003_Съёмочный_лист.md',
-  'Шаблоны/T-004_Связь_с_игровым_модулем.md',
-  'Шаблоны/T-005_Библиотека_CTA.md',
-];
+const rootDocNames = (await fs.readdir(rootDir))
+  .filter((name) => /^(0\d|10)_.+\.md$/u.test(name))
+  .sort(collator.compare);
+
+const coreFiles = rootDocNames.filter((name) => !pinnedRootDocs.has(name));
 
 const scenarioNames = (await fs.readdir(path.join(rootDir, 'Сценарии')))
   .filter((name) => /^S-\d+.*\.md$/u.test(name))
@@ -46,13 +35,18 @@ const scenarioNames = (await fs.readdir(path.join(rootDir, 'Сценарии')))
 
 const scenarioFiles = scenarioNames.map((name) => `Сценарии/${name}`);
 
+const shootDayFiles = (await fs.readdir(path.join(rootDir, 'Съёмочные_дни')))
+  .filter((name) => name.endsWith('.md'))
+  .sort(collator.compare)
+  .map((name) => `Съёмочные_дни/${name}`);
+
 const sourceItems = [
   { source: 'site/index.md', output: 'index.html', section: 'Обзор', navTitle: 'Главная' },
   { source: '08_Реестр_сценариев.md', output: '08_Реестр_сценариев.html', section: 'Обзор', navTitle: 'Реестр сценариев' },
   { source: '09_Реквизит.md', output: '09_Реквизит.html', section: 'Обзор', navTitle: 'Реквизит' },
   ...scenarioFiles.map((source) => ({ source, output: replaceMd(source), section: 'Сценарии' })),
+  ...shootDayFiles.map((source) => ({ source, output: replaceMd(source), section: 'Съёмочные дни' })),
   ...coreFiles.map((source) => ({ source, output: replaceMd(source), section: 'Система' })),
-  ...workflowFiles.map((source) => ({ source, output: replaceMd(source), section: 'Рабочий процесс' })),
 ];
 
 const records = [];
@@ -92,8 +86,8 @@ await fs.writeFile(path.join(outputDir, '.nojekyll'), '', 'utf8');
 
 const counts = {
   scenarioCount: scenarios.length,
-  readyCount: scenarios.filter((record) => record.data.status === 'готов к читке').length,
-  draftCount: scenarios.filter((record) => record.data.status !== 'готов к читке').length,
+  readyCount: scenarios.filter((record) => record.data.status === 'текст вычитан').length,
+  draftCount: scenarios.filter((record) => record.data.status !== 'текст вычитан').length,
 };
 
 for (const record of records) {
