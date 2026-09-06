@@ -1,183 +1,66 @@
 ---
 name: gromovik-shorts
-description: Создание, режиссёрская переработка и маркетинговая упаковка YouTube Shorts с Ведой для продажи онлайн-словесных ролевых игр «Громовика».
+description: Создание, разбор и маркетинговая упаковка снимаемых Shorts с Ведой для онлайн-словесных ролевых игр «Громовика». Применяется к сценариям, съёмке, связям с играми и карточкам публикаций проекта.
 ---
 
-# Gromovik Shorts Skill
+# Шортсы «Громовика»
 
-## Use this skill when
+Результат сценарной работы — встреча Веды с конкретным молчаливым гостем, полная карточка и одна понятная функция ролика. При запросе аудита результатом служат замечания с доказательствами; аудит сам по себе не разрешает переписывать авторские реплики.
 
-- создаётся новый сценарий с Ведой;
-- перерабатывается литературный монолог в снимаемую сцену;
-- готовится анонс нового модуля, пробника, свободного места или события;
-- ролик связывается с реальным злодеем или событием игровой группы;
-- формируется карточка съёмки или публикации;
-- проводится прожарка существующего сценария.
+## Контекст и границы редактирования
 
-## Required reading
+Пути ниже относятся к корню workspace. Перед сценарной работой прочитай `AGENTS.md`, затем `01_Проект_и_продукт.md` → `02_Канон_мира_и_Веда.md` → `03_Сценический_язык.md` → `04_Форматы_и_рубрики.md` → `05_Маркетинговая_система.md` → `06_Производство_и_публикация.md` → `07_Решения_и_бэклог.md` → `08_Реестр_сценариев.md`. Затем прочитай релевантные карточки, связи с играми и `09_Реквизит.md`; для нового пакета — также `10_Банк_идей.md`. Уже прочитанное в текущей работе не перечитывай без причины.
 
-Read in order before writing:
+Текущий запрос и `AGENTS.md` задают границы работы. В материалах проекта отличай последнее принятое решение от предложения, старой редакции и записи в истории. Архив помогает понять происхождение, но не заменяет действующий текст.
 
-1. `/01_Проект_и_продукт.md`
-2. `/02_Канон_мира_и_Веда.md`
-3. `/03_Сценический_язык.md`
-4. `/04_Форматы_и_рубрики.md`
-5. `/05_Маркетинговая_система.md`
-6. `/06_Производство_и_публикация.md`
-7. `/07_Решения_и_бэклог.md`
-8. `/08_Реестр_сценариев.md`
-9. relevant files in `/Сценарии/` and `/Связи_с_играми/`
+Весь вручную переписанный владельцем блок «Полный текст и мизансцена» защищён: реплики, ремарки и порядок. Без явной команды допустимы только орфография, пунктуация и пустая строка между ремаркой и репликой. Описания хуков, поворота, CTA и реквизита приводятся к тексту. При конфликте текста с каноном, длительностью или одним дублем зафиксируй конкретный вопрос в «Стратегической роли» и используй статус `текст вычитан`; не исправляй конфликт перестановкой реплик. Снятый владельцем с работы сценарий не возвращай в работу по собственной инициативе.
 
-Do not rely on the archive as the current source of truth when a newer decision exists.
+## Три профессиональных прохода
 
-## Workflow
+Подробные инструменты находятся в существующих ролевых навыках:
 
-### Step 1 — classify the request
+- [Сценарист](../../../.claude/skills/veda-dramaturg/SKILL.md) — для новой сцены, юмора и драматургического разбора.
+- [Режиссёр](../../../.claude/skills/one-take-director/SKILL.md) — для постановки, реквизита, читки и съёмочного дня.
+- [Маркетолог](../../../.claude/skills/shorts-hook-marketer/SKILL.md) — для входа, CTA, оффера, публикации и анализа результатов.
 
-Choose one:
+Для полного нового сценария нужны все три прохода. Их можно выполнить последовательно; независимая оценка полезна для проверки понятности шутки и скрытой производственной зависимости. Роли не требуют отдельного согласования друг с другом и не получают права менять защищённый текст.
 
-- new evergreen scenario;
-- direct conversion micro-scene;
-- rewrite/staging pass;
-- internal-audience `План №N`;
-- candle series;
-- publication wrapper;
-- critique only.
+## Сборка новой сцены
 
-### Step 2 — identify the audience and one primary goal
+1. Выбери формат, аудиторию и одну главную функцию: `REACH`, `BOND`, `PLAY`, `CONVERT` или `RETAIN`. Вторичный эффект не превращается во второй CTA.
+2. До диалога сформулируй встречу пятью короткими строками: камера, цель Веды, сопротивление, активный глагол, предмет и действие. В итоговой карточке отдельная «Встреча» нужна только при неочевидной расстановке сил; удалённый владельцем блок не восстанавливается.
+3. Для комедии определи привычку игрока и её внутримировое последствие. Зритель без опыта НРИ должен понять буквальную сцену; опытный — узнать привычку. Покажи, как Веда попадает в ту же ловушку, меняет тактику или теряет преимущество. Не ограничивай весь пакет инверсией «эпическое оказалось бытовым».
+4. Спроектируй событие начала, сюжетный вопрос, поворот и последний кадр. Поворот опирается на подготовленное ожидание; новое сведение допустимо, если раскрывает эту подготовку. После сработавшей шутки не добавляй её объяснение.
+5. Напиши полный диалог с необходимыми ремарками. Молчание камеры должно менять поведение Веды, а действие рук — влиять на сцену. Перекладывание предметов само по себе не создаёт постановку.
+6. Назначь один CTA и возможную оболочку. Для продажи покажи преодоление одного барьера. Не добавляй в речь Веды технические слова НРИ и маркетинга. Факты о реальном оффере берутся из подтверждённых данных.
+7. Проверь канон по `02` и действующим решениям `07`, читаемость в вертикали, один дубль и повторяемость действия. Расчёт времени помечай расчётом. Читка актрисой с предметом и подтверждение реквизита нужны для статуса `готов к съёмке`.
 
-Audience:
+При пакете сравни первые действия, роли камеры, механизм юмора и финальные изображения. Не выдавай пять вариаций одной шутки за пять самостоятельных сцен. Не заводи новых бардов по инерции: проверь открытый вопрос в банке идей.
 
-- external;
-- mixed;
-- internal.
+## Карточка и файлы
 
-Primary goal:
+Используй `Шаблоны/T-001_Карточка_сценария.md`. Обязательны метаданные и шесть блоков: «Стратегическая роль», «Хуки», «Поворот и последний кадр», «Полный текст и мизансцена», «CTA», «Реквизит». «Встреча» необязательна. Дополнительный блок нужен только для собственной механики сценария. Отдельных таблиц битов, актёрских ключей, пространства, производства и проверки не добавляй; общая длительность живёт в `estimated_duration`.
 
-- `REACH`;
-- `BOND`;
-- `PLAY`;
-- `CONVERT`;
-- `RETAIN`.
+Новый текст агента не получает статус `текст вычитан`: это утверждение владельца. Выбери фактическую стадию, не обещая выполненной читки или доступного реквизита.
 
-Never assign several equal primary goals.
+Для нового сценария:
 
-### Step 3 — protect shelf life
+- найди следующий незанятый `S-XXX`, учитывая архивные ID;
+- сохрани полный файл в `Сценарии/`;
+- обнови `08_Реестр_сценариев.md` и `09_Реквизит.md`;
+- отдели реквизит предложений от комплекта уже запланированной смены;
+- сохрани заменяемый исходник в `99_Архив/`;
+- при изменении канона обнови `07`; предложения не объявляй принятыми;
+- создай связь с реальной игрой, только если такая связь задана.
 
-Because filming may precede publication by months:
+Для «Плана №N» обязательны мастер, модуль/группа, игровой элемент злодея, возможность публикации до его появления, риск спойлера, момент узнавания и необходимость постфактум-каллбэка. Кнопка неизменна: «Шучу. — (бит) — Наверное». Без данных игры не выдумывай связь.
 
-- keep dates, price, availability and names out of spoken evergreen copy;
-- create a separate dynamic wrapper for current information;
-- leave a natural final hold for overlay text;
-- if the offer is highly perishable, prefer a reusable announcement micro-scene.
+Для конкретной публикации используй `T-002` и ID `P-YYYY-MM-NNN`. Оффер не меняет вечный сценарий. Запрос пяти сценариев не означает назначение даты выпуска или расширение первого съёмочного дня.
 
-### Step 4 — build the encounter
+## Разбор и проверка результата
 
-Define:
+Замечание строится как «наблюдаемое место → последствие для зрителя/актрисы → конкретное предложение». Различай проблему текста, устаревшую обвязку и вопрос для читки. Не приписывай карточке отсутствующий панч и не оценивай её по архивной версии.
 
-- camera identity;
-- Veda's objective;
-- resistance;
-- tactic changes;
-- active acting verb;
-- physical action;
-- central prop;
-- visual hook;
-- story question;
-- reversal;
-- final image.
+Без статистики публикаций оценивай творческий потенциал как гипотезу. Не обещай охват или продажи по одному чтению. Для проверки назови одно наблюдение: понял ли новичок поворот, работает ли действие без второй руки, где актриса вынуждена ускоряться, доходит ли CTA до нужного действия.
 
-Reject a draft that works unchanged as an audio essay unless the user explicitly requests audio narration.
-
-### Step 5 — plan beats, then write dialogue
-
-Plan the beats in your head before final dialogue; do not put a timed beat table in the card. Each beat must alter at least one of:
-
-- information;
-- pressure;
-- tactic;
-- spatial composition;
-- relationship with the camera.
-
-### Step 6 — add marketing without breaking the scene
-
-Choose one CTA only.
-
-Use in-world phrasing in speech. Put technical action in overlay/caption.
-
-Do not attach a sales card after a strong horror or emotional ending when it destroys the aftertaste. In such cases, publish the story cleanly and use a separate conversion post.
-
-### Step 7 — validate production
-
-Confirm:
-
-- one actress can perform it;
-- no second voice is necessary;
-- props are portable and available;
-- the scene works in a borrowed location;
-- continuous audio performance is possible;
-- no dangerous candle or prop action is required;
-- the final frame has overlay space.
-
-### Step 8 — validate canon
-
-Check all hard rules in `02_Канон_мира_и_Веда.md`.
-
-Pay special attention to:
-
-- no alcohol;
-- no liquid-centered action;
-- no divine bargains;
-- irreversible death;
-- no new rat stories;
-- no bookkeeping persona;
-- no merch sales;
-- no Jiter explanation;
-- fixed `План №N` button.
-
-### Step 9 — write files
-
-For a new script:
-
-- use `/Шаблоны/T-001_Карточка_сценария.md`;
-- assign the next free `S-XXX` ID;
-- save to `/Сценарии/`;
-- update `/08_Реестр_сценариев.md`;
-- record canon changes in `/07_Решения_и_бэклог.md`;
-- create an internal link card when relevant.
-
-For a publication:
-
-- use `/Шаблоны/T-002_Карточка_публикации.md`;
-- do not alter the evergreen script for current dates.
-
-## Output standard
-
-A complete scenario includes:
-
-- metadata;
-- `Стратегическая роль`;
-- `Встреча` — camera, objective, resistance, verb, prop and action, five single lines;
-- `Хуки`;
-- `Поворот и последний кадр`;
-- `Полный текст и мизансцена` — full spoken script with concise stage directions;
-- `CTA` and dynamic wrapper;
-- `Реквизит`.
-
-Integrate essential acting and spatial information into the stage directions. Do not add separate `Таблица битов`, `Ключи актрисе`, `Пространство`, `Производство`, or `Проверка` sections; per-beat timing is not written down, only `estimated_duration`. End the scenario card with a short `Реквизит` section. Production and canon validation still happen during the workflow but are not copied into the card.
-
-Do not return placeholders instead of the finished spoken text.
-
-## Tone tests
-
-Reject or revise when:
-
-- Veda sounds like a social media manager;
-- the text becomes “LinkedIn in chainmail”;
-- the moral is spoken twice;
-- every sentence is an aphorism;
-- the flash is used as a generic dramatic filter;
-- the camera has no identity;
-- the scene begins with exposition instead of an event;
-- lore is required to understand the basic joke;
-- the offer will be stale by publication.
+Перед завершением сверь карточки с реестром и реквизитом; проверь локальные ссылки. В ответе покажи главные выводы и дай ссылки на полные файлы. Укажи, что требует живой читки; не выдавай проверку Markdown за проверку юмора.
