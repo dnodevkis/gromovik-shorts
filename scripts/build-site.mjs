@@ -8,7 +8,6 @@ const rootDir = process.cwd();
 const outputDir = path.resolve(rootDir, 'dist');
 const repositoryUrl = 'https://github.com/dnodevkis/gromovik-shorts';
 const siteUrl = 'https://dnodevkis.github.io/gromovik-shorts/';
-const collator = new Intl.Collator('ru', { numeric: true, sensitivity: 'base' });
 
 if (!outputDir.startsWith(`${path.resolve(rootDir)}${path.sep}`)) {
   throw new Error(`Unsafe output directory: ${outputDir}`);
@@ -19,34 +18,24 @@ marked.setOptions({
   breaks: false,
 });
 
-// На сайт публикуются только три группы: корневые файлы 00-10, «Сценарии» и «Съёмочные дни».
-// Всё остальное (Шаблоны, Публикации, Связи с играми, архив) остаётся внутренним и в сборку не попадает.
-const pinnedRootDocs = new Set(['08_Реестр_сценариев.md', '09_Реквизит.md']);
-
-const rootDocNames = (await fs.readdir(rootDir))
-  .filter((name) => /^(0\d|10)_.+\.md$/u.test(name))
-  .sort(collator.compare);
-
-const coreFiles = rootDocNames.filter((name) => !pinnedRootDocs.has(name));
-
-const scenarioNames = (await fs.readdir(path.join(rootDir, 'Сценарии')))
-  .filter((name) => /^S-\d+.*\.md$/u.test(name))
-  .sort(collator.compare);
-
-const scenarioFiles = scenarioNames.map((name) => `Сценарии/${name}`);
-
-const shootDayFiles = (await fs.readdir(path.join(rootDir, 'Съёмочные_дни')))
-  .filter((name) => name.endsWith('.md'))
-  .sort(collator.compare)
-  .map((name) => `Съёмочные_дни/${name}`);
+// Публикуем только явно выбранные карточки в согласованном порядке и страницу канона.
+// Новые файлы в репозитории не попадают на сайт автоматически.
+const scenarioFiles = [
+  'Сценарии/S-002_Провал.md',
+  'Сценарии/S-005_Оплата.md',
+  'Сценарии/S-006_Древние_крысы.md',
+  'Сценарии/S-007_Собеседование.md',
+  'Сценарии/S-009_Котёл.md',
+  'Сценарии/S-010_Переводчик_с_геройского.md',
+  'Сценарии/S-014_Камень.md',
+  'Сценарии/S-012_После_героев.md',
+  'Сценарии/S-017_Житер.md',
+];
 
 const sourceItems = [
   { source: 'site/index.md', output: 'index.html', section: 'Обзор', navTitle: 'Главная' },
-  { source: '08_Реестр_сценариев.md', output: '08_Реестр_сценариев.html', section: 'Обзор', navTitle: 'Реестр сценариев' },
-  { source: '09_Реквизит.md', output: '09_Реквизит.html', section: 'Обзор', navTitle: 'Реквизит' },
   ...scenarioFiles.map((source) => ({ source, output: replaceMd(source), section: 'Сценарии' })),
-  ...shootDayFiles.map((source) => ({ source, output: replaceMd(source), section: 'Съёмочные дни' })),
-  ...coreFiles.map((source) => ({ source, output: replaceMd(source), section: 'Система' })),
+  { source: '02_Канон_мира_и_Веда.md', output: '02_Канон_мира_и_Веда.html', section: 'Канон' },
 ];
 
 const records = [];
@@ -75,7 +64,7 @@ const scenarioIndex = {
   virtual: true,
 };
 
-const navRecords = [records[0], records[1], scenarioIndex, ...records.slice(2)];
+const navRecords = [records[0], scenarioIndex, ...records.slice(1)];
 const outputBySource = new Map(records.map((record) => [normalizeSource(record.source), record.output]));
 
 await fs.rm(outputDir, { recursive: true, force: true });
@@ -84,20 +73,11 @@ await fs.copyFile(path.join(rootDir, 'site', 'styles.css'), path.join(outputDir,
 await fs.copyFile(path.join(rootDir, 'site', 'client.js'), path.join(outputDir, 'assets', 'client.js'));
 await fs.writeFile(path.join(outputDir, '.nojekyll'), '', 'utf8');
 
-const counts = {
-  scenarioCount: scenarios.length,
-  readyCount: scenarios.filter((record) => record.data.status === 'текст вычитан').length,
-  draftCount: scenarios.filter((record) => record.data.status !== 'текст вычитан').length,
-};
-
 for (const record of records) {
   let markdown = record.content;
 
   if (record.source === 'site/index.md') {
-    markdown = markdown
-      .replaceAll('{{SCENARIO_COUNT}}', String(counts.scenarioCount))
-      .replaceAll('{{READY_COUNT}}', String(counts.readyCount))
-      .replaceAll('{{DRAFT_COUNT}}', String(counts.draftCount));
+    markdown = markdown.replaceAll('{{SCENARIO_COUNT}}', String(scenarios.length));
   }
 
   const rendered = await marked.parse(markdown);
@@ -325,4 +305,3 @@ function escapeAttribute(value) {
 function escapeXml(value) {
   return escapeHtml(value).replaceAll('&#039;', '&apos;');
 }
-
